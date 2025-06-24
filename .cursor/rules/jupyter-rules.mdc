@@ -4,3 +4,4 @@ globs:
 alwaysApply: true
 ---
 - Before editing a Jupyter cell with the MCP tool, you must read the cell first to make sure you're not editing the wrong cell
+- If we report an issue running a cell, don't assume what the issue is. Read the cell output first to gather the context necessary to successfully diagnose the issue.
