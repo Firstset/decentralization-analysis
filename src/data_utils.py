@@ -215,6 +215,32 @@ def generate_sample_data(n_rows=1000):
     
     return pd.DataFrame(data)
 
+def pie_colors(n_main=10, others_color=(0.6, 0.6, 0.6)):
+    """
+    Returns a list of colors for a pie chart with n_main slices + 'Others'.
+    Uses tab20 for main slices and a neutral color for 'Others'.
+    """
+    base_colors = plt.get_cmap('tab20').colors
+    if n_main > len(base_colors):
+        raise ValueError("Not enough distinct colors in the colormap for n_main slices.")
+    return list(base_colors[:n_main]) + [others_color]
+
+def chain_colors():
+    """
+    Returns a dictionary of brand colors for different blockchain networks.
+    These colors are commonly used in their branding and documentation.
+    
+    Returns:
+    --------
+    dict
+        Dictionary with chain names as keys and their brand colors as values
+    """
+    return {
+        'ethereum': '#627EEA',  # Ethereum's official blue
+        'solana': '#14F195',    # Solana's signature green
+        'sui': '#4CA3FF'        # Sui's brand blue
+    }
+
 if __name__ == "__main__":
     # Test the functions
     print("Testing data utilities...")
