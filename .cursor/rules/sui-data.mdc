@@ -3,7 +3,7 @@ description: Everything you need to know about our Sui data source
 globs: 
 alwaysApply: false
 ---
-We pull Sui validator data from validators.app
+We pull Sui validator data from the RPC
 
 ### Query 1
 
