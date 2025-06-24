@@ -1,0 +1,48 @@
+---
+description: Schemas of the dataframes in the notebook
+globs: 
+alwaysApply: false
+---
+The main dataframes in our Jupyter notebook have the following schemas:
+
+1. Ethereum Geo/Provider Data (`eth_geo_provider_df`):
+- country: Country code (str)
+- region: Region name (str)
+- city: City name (str)
+- asn: ASN string (e.g., 'AS8821')
+- asn_organization: Provider/organization name (str)
+- validators: Number of validators (int)
+
+2. Ethereum Entity Distribution (`eth_entities_df`):
+- name: Entity name (str)
+- eth_deposited: ETH deposited (int)
+- share: Share of total (float)
+
+3. Solana Validators (`solana_validators_df`):
+- name: Validator name (str)
+- ip: IP address (str or float)
+- data_center_key: String in format 'ASN-COUNTRY-CITY' (str)
+- asn: ASN number (int)
+- country: Country code (str)
+- city: City name (str)
+- provider: Provider/organization (str, from IP lookup)
+- asn_number: ASN number (str, from provider string)
+- provider_name: Cleaned provider name (str, normalized)
+- active_stake: Active stake (int)
+
+4. Sui Validators (`sui_validators_df`):
+- name: Validator name (str)
+- p2pAddress: P2P address (str)
+- hostname: Hostname (str, extracted from p2pAddress)
+- ip: IP address (str)
+- provider: Provider/organization (str, from IP lookup)
+- asn: ASN number (str, from provider string)
+- country: Country code (str, from IP lookup)
+- city: City name (str, from IP lookup)
+- asn_number: ASN number (str, from provider string)
+- provider_name: Cleaned provider name (str, normalized)
+- stakingPoolSuiBalance: Active stake (int)
+
+Notes:
+- For Solana and Sui, provider normalization applies special rules for certain ASNs (e.g., AS262287 → Latitude.sh, AS205544/AS28753 → Leaseweb).
+- All dataframes may have additional columns from the source APIs, but these are the main columns used in analysis and visualization.
