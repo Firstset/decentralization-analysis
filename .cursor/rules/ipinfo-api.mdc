@@ -1,0 +1,27 @@
+---
+description: Ipinfo API for IP address resolution
+globs: 
+alwaysApply: false
+---
+The ipinfo API helps us resolve IP addresses to geo and provider info.
+
+URL: https://ipinfo.io/{ip}/json
+
+Example:
+
+```
+curl "https://ipinfo.io/185.167.205.3/json?token=$IPINFO_KEY" | jq
+{
+  "ip": "185.167.205.3",
+  "city": "Breda",
+  "region": "North Brabant",
+  "country": "NL",
+  "loc": "51.5866,4.7760",
+  "org": "AS57758 Cloudbear B.V.",
+  "postal": "4811",
+  "timezone": "Europe/Amsterdam"
+}
+```
+
+Notes:
+- Read IPINFO_KEY from `.env`

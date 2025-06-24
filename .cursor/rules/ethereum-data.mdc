@@ -1,0 +1,70 @@
+---
+description: Everything you need to know about our Ethereum data source
+globs: 
+alwaysApply: false
+---
+We pull Ethereum validator data from Dune.
+
+### Query 1
+
+It returns geo and provider data for Ethereum validators, with `validators` being the count (each validator with 32 ETH in it).
+
+URL: https://dune.com/queries/5332515
+
+Sample:
+
+```
+| country | region | city | asn | asn_organization | validators |
+| --- | --- | --- | --- | --- | --- |
+| CH | Zug | Unterägeri | AS8821 | WWZ Telekom AG | 5 |
+| NL | North Holland | Hilversum | AS1136 | KPN B.V. | 16 |
+| CH | Zurich | Zürich | AS8758 | Iway AG | 37 |
+| US | Massachusetts | Hanson | AS7015 | Comcast Cable Communications, LLC | 2 |
+| US | Michigan | Clinton Township | AS7922 | Comcast Cable Communications, LLC | 4 |
+| US | Washington | Walla Walla | AS20115 | Charter Communications | 10 |
+| US | Virginia | Ashburn | AS19437 | SECURED SERVERS LLC | 2 |
+| NL | Flevoland | Lelystad | AS7979 | Servers.com, Inc. | 156 |
+| AU | New South Wales | Sydney | AS4764 | Aussie Broadband | 9 |
+| CZ | Moravskoslezský | Opava | AS16019 | Vodafone Czech Republic a.s. | 10 |
+```
+
+API:
+
+```
+curl -H "X-Dune-API-Key:$API_KEY" "https://api.dune.com/api/v1/query/5332515/results?limit=1000"
+```
+
+### Query 2
+
+It returns the distribution of validators across entities.
+
+URL: https://dune.com/queries/5164353
+
+Sample:
+
+```
+| name | eth_deposited | share |
+| --- | --- | --- |
+| Lido | 9009344 | 25.68318834531209 |
+| Coinbase | 4210816 | 12.003890673444557 |
+| Binance | 2723968 | 7.765291589554477 |
+| Ether.fi(EigenLayer) | 2320760 | 6.615855292490385 |
+| Unidentified | 1540753 | 4.392267571601733 |
+| Figment | 976768 | 2.7844997941774454 |
+| Kraken | 881504 | 2.5129280510485548 |
+| Abyss Finance | 826223 | 2.3553369617398108 |
+| Rocketpool | 657129 | 1.873295977394868 |
+| Everstake | 645888 | 1.8412509450163004 |
+```
+
+API:
+
+```
+curl -H "X-Dune-API-Key:$API_KEY" "https://api.dune.com/api/v1/query/5164353/results?limit=1000"
+```
+
+### Notes
+
+- The Dune API key can be loaded from `.env` as `DUNE_API_KEY`.
+- IP addresses are not included but we have location data and ASNs so it's ok.
+- Unlike other chains, we need to employ two separate sources for different data (one for provider + geo, a separate one for entity names). This data cannot be safely merged so the data pipelines for Ethereum data cannot be merged.

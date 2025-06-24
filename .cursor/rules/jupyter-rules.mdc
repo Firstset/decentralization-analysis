@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Before editing a Jupyter cell with the MCP tool, you must read the cell first to make sure you're not editing the wrong cell

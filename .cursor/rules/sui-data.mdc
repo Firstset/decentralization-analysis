@@ -1,0 +1,38 @@
+---
+description: Everything you need to know about our Sui data source
+globs: 
+alwaysApply: false
+---
+We pull Sui validator data from validators.app
+
+### Query 1
+
+It returns data about Sui validators, such as the Name, P2P address, or active stake.
+
+JSON RPC URL: https://fullnode.mainnet.sui.io/
+Method: `suix_getLatestSuiSystemState`
+
+Sample:
+
+```
+{"jsonrpc":"2.0","id":1,"result":{"epoch":"802","protocolVersion":"85","systemStateVersion":"2","storageFundTotalObjectStorageRebates":"1114452691671200","storageFundNonRefundableBalance":"594066411160505","referenceGasPrice":"740","safeMode":false,"safeModeStorageRewards":"0","safeModeComputationRewards":"0","safeModeStorageRebates":"0","safeModeNonRefundableStorageFee":"0","epochStartTimestampMs":"1750614026070","epochDurationMs":"86400000","stakeSubsidyStartEpoch":"20","maxValidatorCount":"150","minValidatorJoiningStake":"30000000000000000","validatorLowStakeThreshold":"20000000000000000","validatorVeryLowStakeThreshold":"15000000000000000","validatorLowStakeGracePeriod":"7","stakeSubsidyBalance":"400812802200000010","stakeSubsidyDistributionCounter":"782","stakeSubsidyCurrentDistributionAmount":"478296900000000","stakeSubsidyPeriodLength":"90","stakeSubsidyDecreaseRate":1000,"totalStake":"7523057016726566665","activeValidators":[{"suiAddress":"0x8f8ea04f3b751533db8b8da0a40eba1ca8332a92680f058d83b9459d061aaa54","protocolPubkeyBytes":"gNhkGDfc1QPTb/j50fzMPmQVp8PCrSZlxd/b0Ec8nqf1N2rbMejspBhU3wi/ue2/AlgAH8g8alP6n3tNSqF9cBt5IevIYlERPvVxoekPWMWiGpLCB8NNm3iEwxKNwbgj","networkPubkeyBytes":"MoHiJfYzs1i8+P6LYAXN/aO4CdjlpEptsuumFuLL9EM=","workerPubkeyBytes":"oud9N1OOviX9yE3RJ2PqWyERYwGvUNaXC7aBhDRVeT4=","proofOfPossessionBytes":"r7Kql1UwLivuv7AATUnZ2VejCWc21AoV+elG3gJU8U6aUab7cT6CUtFSpTC4z8sm","name":"InfStones","description":"InfStones runs an enterprise-grade node management and staking platform","imageUrl":"https://github.com/sili-infstones/infstones-logo/raw/main/infstones_logo.webp","projectUrl":"https://infstones.com","netAddress":"/dns/prod.sui.infstones.io/tcp/8080/http","p2pAddress":"/dns/prod.sui.infstones.io/udp/8084","primaryAddress":"/dns/prod.sui.infstones.io/udp/8081","workerAddress":"/dns/prod.sui.infstones.io/udp/8082","nextEpochProtocolPubkeyBytes":null,"nextEpochProofOfPossession":null,"nextEpochNetworkPubkeyBytes":null,"nextEpochWorkerPubkeyBytes":null,"nextEpochNetAddress":null,"nextEpochP2pAddress":null,"nextEpochPrimaryAddress":null,"nextEpochWorkerAddress":null,"votingPower":"26","operationCapId":"0x1074a602678c05b98fd0eb35982a6f18f25d37e177e59698375a6f04f89c435e","gasPrice":"910","commissionRate":"800","nextEpochStake":"19870522594147970","nextEpochGasPrice":"910","nextEpochCommissionRate":"800","stakingPoolId":"0x3b34ff964e2d7ead46b3fe377b17b11aad0eecda7b75c3afa6f4d9073be2f77e","stakingPoolActivationEpoch":"0","stakingPoolDeactivationEpoch":null,"stakingPoolSuiBalance":"19886773870893315","rewardsPool":"528405657789485","poolTokenBalance":"18550724081616967","pendingStake":"0","pendingTotalSuiWithdraw":"16256156400286","pendingPoolTokenWithdraw":"15164021774829","exchangeRatesId":"0xfc84a891514f2eb7f098457bf6451cb36886332116caaa52fce82249c9cabe48","exchangeRatesSize":"800"},{"suiAddress":"0xdead0072f3a00a250cc8dd90315e92822130258105a494f831ee9bb1576fd71f","protocolPubkeyBytes":"gPppt5z5zAin3D6xRm5BwoyzMmJFLacVDO7n8KI4NzUXtAW5w0tieB0crjeHAMuGFKbCLmQflrepjZhrgmfPBEyvcB6djInd8PtSgLXAszYCOzcMw2XyAmPBBDnf102B","networkPubkeyBytes":"0h4PSnhtdAwXdVn/Aqy4oTbOuMdYSaYKUaV2YiyzZcY=","workerPubkeyBytes":"GpHKGfFr7uFIWn6apFrwSAtrRWDGoNSLEiROXPdnMW0=","proofOfPossessionBytes":"i8EeoRPh4sQC9ZToDBWhknFRuq0EuUyYwwIHq5qc0QTOHFRnRkcSBvy8WKH/dlhG","name":"Obelisk","description":"Operational Excellence on Bare Metal","imageUrl":"","projectUrl":"https://obelisk.sh/about/","netAddress":"/dns/sui.wizardfiction.com/tcp/8080/http","p2pAddress":"/dns/sui.wizardfiction.com/udp/8084","primaryAddress":"/dns/sui.wizardfiction.com/udp/8081","workerAddress":"/dns/sui.wizardfiction.com/udp/8082","nextEpochProtocolPubkeyBytes":null,"nextEpochProofOfPossession":null,"nextEpochNetworkPubkeyBytes":null,"nextEpochWorkerPubkeyBytes":null,"nextEpochNetAddress":null,"nextEpochP2pAddress":null,"nextEpochPrimaryAddress":null,"nextEpochWorkerAddress":null,"votingPower":"46","operationCapId":"0xfe166df6b7c123e68ac63e3d978c4bf914abe2000a9ae29e28ceda0262068304","gasPrice":"398","commissionRate":"800","nextEpochStake":"35036812948854029","nextEpochGasPrice":"398","nextEpochCommissionRate":"800","stakingPoolId":"0x3c67db7fe61258fce47fe8fee61a7c2b781c94fe5345d98a4f590ae7a47c885e","stakingPoolActivationEpoch":"0","stakingPoolDeactivationEpoch":null,"stakingPoolSuiBalance":"35036815257056575","rewardsPool":"2150378936873875","poolTokenBalance":"32674370774439603","pendingStake":"0","pendingTotalSuiWithdraw":"6308589434","pendingPoolTokenWithdraw":"5883217089","exchangeRatesId":"0xf74bc9c64fb2efe89027b3e075166e582b5e27030b81b39d61996a6eb5aee6e4","exchangeRatesSize":"800"},...],"pendingActiveValidatorsId":"0x719fdd5d050b2a1be364ab385ac3d163b7ac407e234721392d3c716a6332caf3","pendingActiveValidatorsSize":"0","pendingRemovals":[],"stakingPoolMappingsId":"0x3a4ec1afc6f550aa838aa4e823380a2c7c9567cf12e8e4dcc81ea7d411e544c8","stakingPoolMappingsSize":"130","inactivePoolsId":"0xf2dfc014f09869d512c7965d743e1f513853f492d9c7c0d755597154cb3ff8cd","inactivePoolsSize":"9","validatorCandidatesId":"0x94f89425db4d5bfa8d982d17f5746a1ac35ccb863662ee9486587e1e2d922763","validatorCandidatesSize":"14","atRiskValidators":[],"validatorReportRecords":[["0x3b5664bb0f8bb4a8be77f108180a9603e154711ab866de83c8344ae1f3ed4695",["0x43b8f743162704af85214b0d0159fbef11aae0e996a8e9eac7fafda7fc5bd5f2","0x0ae4b2b4ed34dd551a01a946e51c0c431726faf5568659560f76b31642588468","0xec73ec4d6b2a9403937b12ca625f7b3124c4459ff4e3caae6cf6376edefb9f3a"]],["0x92c7bf9914897e8878e559c19a6cffd22e6a569a6dd4d26f8e82e0f2ad1873d6",["0x43b8f743162704af85214b0d0159fbef11aae0e996a8e9eac7fafda7fc5bd5f2","0xec73ec4d6b2a9403937b12ca625f7b3124c4459ff4e3caae6cf6376edefb9f3a"]]]}}%      
+```
+
+API:
+
+```
+curl -X POST https://fullnode.mainnet.sui.io/ \
+-H "Content-Type: application/json" \
+-d '{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "suix_getLatestSuiSystemState",
+  "params": []
+}'
+```
+
+### Notes
+
+- The JSON RPC endpoint sometimes might time out or error out, but retrying usually works
+- We need to use the p2pAddress which might be a URL, and resolve to an IP address, and then in turn resolve to ASN, provider, geo data, etc.
+- To resolve an IP to geo and provider data use `https://ipinfo.io/%s/json`
